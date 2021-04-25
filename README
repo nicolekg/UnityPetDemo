@@ -1,0 +1,7 @@
+A simple pet game demo in Unity. You click buttons to keep the pet's happiness or hunger meter from hitting 0.
+
+Lessons learned:
+- I used multiple layers of sprites to make each status bar (outline, background, and fill). Sorting layers were necessary here to make them show up in the expected order.
+- I should have used a prefab for the status bars, especially if I was going to add more. It would have resulted in less tweaking and manual code.
+- I used global static variables (in Globals.cs) to keep track of the current hunger and health value and allow different scripts to add or subtract it. I think the classier way to do this would be to have a StatusController with functions that could be called via SendMessage.
+- Making the assets and ui elements show up properly for different resolutions was tricky, [this guide](https://www.raywenderlich.com/6570-introduction-to-unity-ui-part-1) was helpful. The key insights were using CanvasScaler for the background and setting anchors on the ui elements, as well as grouping together elements you want to move together. E.g. I made a container object for the status bars and their labels and anchored it to the left but flex in the vertical direction. and then testing different resolutions on the game view to make sure it was working as intended. 
